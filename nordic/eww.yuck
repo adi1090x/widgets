@@ -161,17 +161,17 @@
 (defwidget apps [] 
 	(box :class "genwin" :orientation "v" :space-evenly "false" :vexpand "false" :hexpand "false" 
 		(box :class "appbox" :orientation "h" :space-evenly "false" :vexpand "false" :hexpand "false" 
-			(button :style "background-image: url('images/icons/firefox.svg');" :class "app_fox" :onclick "~/.config/eww/scripts/open_apps --ff/" 
+			(button :style "background-image: url('images/icons/firefox.svg');" :class "app_fox" :onclick "~/.config/eww/scripts/open_apps --ff/")
 			(button :style "background-image: url('images/icons/telegram.svg');" :class "app_telegram" :onclick "~/.config/eww/scripts/open_apps --tg")
 			(button :style "background-image: url('images/icons/discord.svg');" :class "app_discord" :onclick "~/.config/eww/scripts/open_apps --dc"))
-						(box :class "appbox" :orientation "h" :space-evenly "false" :vexpand "false" :hexpand "false" 
+		(box :class "appbox" :orientation "h" :space-evenly "false" :vexpand "false" :hexpand "false" 
 			(button :style "background-image: url('images/icons/terminal.svg');" :class "app_terminal" :onclick "~/.config/eww/scripts/open_apps --tr")
 			(button :style "background-image: url('images/icons/files.svg');" :class "app_files" :onclick "~/.config/eww/scripts/open_apps --fm")
 			(button :style "background-image: url('images/icons/geany.svg');" :class "app_geany" :onclick "~/.config/eww/scripts/open_apps --ge"))
-						(box :class "appbox" :orientation "h" :space-evenly "false" :vexpand "false" :hexpand "false" 
+		(box :class "appbox" :orientation "h" :space-evenly "false" :vexpand "false" :hexpand "false" 
 			(button :style "background-image: url('images/icons/code.svg');" :class "app_code" :onclick "~/.config/eww/scripts/open_apps --cd")
 			(button :style "background-image: url('images/icons/gimp.svg');" :class "app_gimp" :onclick "~/.config/eww/scripts/open_apps --gp")
-			(button :style "background-image: url('images/icons/virtualbox.svg');" :class "app_vbox" :onclick "~/.config/eww/scripts/open_apps --vb")))))
+			(button :style "background-image: url('images/icons/virtualbox.svg');" :class "app_vbox" :onclick "~/.config/eww/scripts/open_apps --vb"))))
 
 ;;  power buttons 
 (defwidget logout [] 
