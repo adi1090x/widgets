@@ -17,8 +17,6 @@
   <img src="previews/nordic.png">
 </p>
 
-**So, the xml config doesn't work anymore. I'll migrate these widgets to the new configuration 'YUCK' later.**
-
 ### Create a replica
 
 - Install Elkowar’s Wacky Widgets - [Instructions](https://elkowar.github.io/eww/main)
