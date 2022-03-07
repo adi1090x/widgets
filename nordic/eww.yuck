@@ -4,72 +4,70 @@
 ;; ** Converted by : @tripleo1
 ;; **
 
+;; ** Variables ***********************************************************************
 
-    
-
-;;  Profile vars 
+;; Profile vars
 (defvar IMAGE "images/profile.jpg")
-(defvar NAME "YOUR NAME")
-(defpoll UNAME :interval "5m"  "whoami")
+(defvar NAME "Aditya Shakya")
+(defpoll UNAME :interval "5m" `whoami`)
 
-;;  System vars 
-(defpoll HOST :interval "5s"  "hostname")
-(defpoll CPU_USAGE :interval "1s"  "~/.config/eww/scripts/sys_info --cpu")
-(defpoll MEM_USAGE :interval "1s"  "~/.config/eww/scripts/sys_info --mem")
-(defpoll BLIGHT :interval "1s"  "~/.config/eww/scripts/sys_info --blight")
-(defpoll BATTERY :interval "5s"  "~/.config/eww/scripts/sys_info --bat")
+;; System vars
+(defpoll HOST :interval "5s" `hostname`)
+(defpoll CPU_USAGE :interval "1s" `~/.config/eww/scripts/sys_info --cpu`)
+(defpoll MEM_USAGE :interval "1s" `~/.config/eww/scripts/sys_info --mem`)
+(defpoll BLIGHT :interval "1s" `~/.config/eww/scripts/sys_info --blight`)
+(defpoll BATTERY :interval "5s" `~/.config/eww/scripts/sys_info --bat`)
 
-;;  Time vars 
-(defpoll HOUR :interval "5s"  "date +\"%I\"")
-(defpoll MIN :interval "5s"  "date +\"%M\"")
-(defpoll MER :interval "5s"  "date +\"%p\"")
-(defpoll DAY :interval "5s"  "date +\"%A\"")
+;; Time vars
+(defpoll HOUR :interval "5s" `date +\"%I\"`)
+(defpoll MIN :interval "5s" `date +\"%M\"`)
+(defpoll MER :interval "5s" `date +\"%p\"`)
+(defpoll DAY :interval "5s" `date +\"%A\"`)
 
-;;  Uptime vars 
-(defpoll UPHOUR :interval "5s"  "uptime -p | awk '{print $2 \" \" $3}' | sed 's/,//g'")
-(defpoll UPMIN :interval "5s"  "uptime -p | awk '{print $4 \" \" $5}'")
+;; Uptime vars
+(defpoll UPHOUR :interval "5s" `uptime -p | awk '{print $2 \" \" $3}' | sed 's/,//g'`)
+(defpoll UPMIN :interval "5s" `uptime -p | awk '{print $4 \" \" $5}'`)
 
-;;  Music vars 
-(defpoll SONG :interval "1s"  "~/.config/eww/scripts/music_info --song")
-(defpoll ARTIST :interval "1s"  "~/.config/eww/scripts/music_info --artist")
-(defpoll STATUS :interval "1s"  "~/.config/eww/scripts/music_info --status")
-(defpoll CURRENT :interval "1s"  "~/.config/eww/scripts/music_info --time")
-(defpoll COVER :interval "1s"  "~/.config/eww/scripts/music_info --cover")
-(defpoll CTIME :interval "1s"  "~/.config/eww/scripts/music_info --ctime")
-(defpoll TTIME :interval "1s"  "~/.config/eww/scripts/music_info --ttime")
+;; Music vars
+(defpoll SONG :interval "1s" `~/.config/eww/scripts/music_info --song`)
+(defpoll ARTIST :interval "1s" `~/.config/eww/scripts/music_info --artist`)
+(defpoll STATUS :interval "1s" `~/.config/eww/scripts/music_info --status`)
+(defpoll CURRENT :interval "1s" `~/.config/eww/scripts/music_info --time`)
+(defpoll COVER :interval "1s" `~/.config/eww/scripts/music_info --cover`)
+(defpoll CTIME :interval "1s" `~/.config/eww/scripts/music_info --ctime`)
+(defpoll TTIME :interval "1s" `~/.config/eww/scripts/music_info --ttime`)
 
 ;; Weather vars
-(defpoll ICON :interval "15m"  "~/.config/eww/scripts/weather_info --icon")
-(defpoll STAT :interval "15m"  "~/.config/eww/scripts/weather_info --stat")
-(defpoll TEMP :interval "15m"  "~/.config/eww/scripts/weather_info --temp")
-(defpoll HEX :interval "15m"  "~/.config/eww/scripts/weather_info --hex")
-(defpoll QUOTE :interval "15m"  "~/.config/eww/scripts/weather_info --quote")
-(defpoll QUOTE2 :interval "15m"  "~/.config/eww/scripts/weather_info --quote2")
+(defpoll ICON :interval "15m" `~/.config/eww/scripts/weather_info --icon`)
+(defpoll STAT :interval "15m" `~/.config/eww/scripts/weather_info --stat`)
+(defpoll TEMP :interval "15m" `~/.config/eww/scripts/weather_info --temp`)
+(defpoll HEX :interval "15m" `~/.config/eww/scripts/weather_info --hex`)
+(defpoll QUOTE :interval "15m" `~/.config/eww/scripts/weather_info --quote`)
+(defpoll QUOTE2 :interval "15m" `~/.config/eww/scripts/weather_info --quote2`)
 
-;;  Apps vars 
-(defpoll MAILS :interval "5m"  "~/.config/eww/scripts/mails")
+;; Apps vars
+(defpoll MAILS :interval "5m" `~/.config/eww/scripts/mails`)
 
-;;  Files vars 
-(defpoll FREE :interval "5s"  "df -h / | awk '{print $4}' | tail -n 1 | sed 's/G/GB/'")
+;; Files vars
+(defpoll FREE :interval "5s" `df -h / | awk '{print $4}' | tail -n 1 | sed 's/G/GB/'`)
 
-    
 
-;;  ******************************************************************************** 
+;; ** Widgets *************************************************************************
 
-    
 
-;;  background 
+;; background
 (defwidget bg [] 
-	(box :class "bg"))
+	(box :class "bg")
+)
 
-;;  profile 
+;; profile
 (defwidget user [] 
-	(box :class "genwin" :orientation "v" :spacing 35 :space-evenly "false" :vexpand "false" :hexpand "false" 
-		(box :style "background-image: url('{{IMAGE}}');" :class "face" :halign "center" 
+	(box :class "genwin" :orientation "v" :spacing 35 :space-evenly "false" :vexpand "false" :hexpand "false"
+		(box :style "background-image: url('${IMAGE}');" :class "face" :halign "center")
 		(label :class "fullname" :halign "center" :wrap "true" :limit-width 25 :text NAME)
-		(label :class "username" :halign "center" :wrap "true" :limit-width 25 :text UNAME))))
+		(label :class "username" :halign "center" :wrap "true" :limit-width 25 :text UNAME)))
 
-;;  system 
+;; system
 (defwidget system [] 
 	(box :class "genwin" :vexpand "false" :hexpand "false" 
 		(box :orientation "v" :spacing 35 :halign "center" :valign "center" :space-evenly "false" :vexpand "false" :hexpand "false" 
@@ -86,7 +84,7 @@
 				(label :class "iconbat" :text "")
 				(scale :min 0 :max 100 :value BATTERY :active "false")))))
 
-;;  clock 
+;; clock
 (defwidget clock [] 
 	(box :class "genwin" :orientation "h" :space-evenly "false" :vexpand "false" :hexpand "false" 
 		(label :class "time_hour" :valign "start" :wrap "true" :limit-width 25 :text HOUR)
@@ -95,7 +93,7 @@
 			(label :class "time_mer" :halign "end" :wrap "true" :limit-width 25 :text MER)
 			(label :class "time_day" :halign "end" :wrap "true" :limit-width 25 :text DAY))))
 
-;;  uptime 
+;; uptime
 (defwidget uptime [] 
 	(box :class "genwin" 
 		(box :orientation "h" :halign "center" :spacing 40 :space-evenly "false" :vexpand "false" :hexpand "false" 
@@ -104,10 +102,10 @@
 				(label :class "uphour" :halign "start" :wrap "true" :limit-width 25 :text UPHOUR)
 				(label :class "upmin" :halign "start" :wrap "true" :limit-width 25 :text UPMIN)))))
 
-;;  Music 
+;; Music
 (defwidget music [] 
 	(box :class "genwin" :orientation "h" :space-evenly "false" :vexpand "false" :hexpand "false" 
-		(box :class "album_art" :vexpand "false" :hexpand "false" :style "background-image: url('{{COVER}}');")
+		(box :class "album_art" :vexpand "false" :hexpand "false" :style "background-image: url('${COVER}');")
 		(box :orientation "v" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false" 
 			(label :halign "center" :class "song" :wrap "true" :limit-width 20 :text SONG)
 			(label :halign "center" :class "artist" :wrap "true" :limit-width 15 :text ARTIST)
@@ -118,27 +116,27 @@
 			(box :class "music_bar" :halign "center" :vexpand "false" :hexpand "false" 
 				(scale :onscroll "mpc -q seek +1" :min 0 :active "true" :max 100 :value CURRENT)))))
 
-;;  github 
+;; github
 (defwidget github [] 
 	(box :class "github" :vexpand "false" :hexpand "false" 
 		(button :class "iconweb" :onclick "~/.config/eww/scripts/open_links --gh" "")))
 
-;;  reddit 
+;; reddit
 (defwidget reddit [] 
 	(box :class "reddit" :vexpand "false" :hexpand "false" 
 		(button :class "iconweb" :onclick "~/.config/eww/scripts/open_links --rd" "樓")))
 
-;;  twitter 
+;; twitter
 (defwidget twitter [] 
 	(box :class "twitter" :vexpand "false" :hexpand "false" 
 		(button :class "iconweb" :onclick "~/.config/eww/scripts/open_links --tw" "")))
 
-;;  youtube 
+;; youtube
 (defwidget youtube [] 
 	(box :class "youtube" :vexpand "false" :hexpand "false" 
 		(button :class "iconweb" :onclick "~/.config/eww/scripts/open_links --yt" "")))
 
-;;  mail 
+;; mail
 (defwidget mail [] 
 	(box :class "mail" 
 		(box :orientation "h" :halign "center" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false" 
@@ -146,7 +144,7 @@
 			(box :class "mailbox" :space-evenly "false" :vexpand "false" :hexpand "false" 
 				(button :class "label_mails" :onclick "~/.config/eww/scripts/open_links --mail" MAILS)))))
 
-;;  weather 
+;; weather
 (defwidget weather [] 
 	(box :class "genwin" 
 		(box :orientation "v" :spacing 10 :space-evenly "false" :vexpand "false" :hexpand "false" 
@@ -158,7 +156,7 @@
 				(label :class "label_quote" :text QUOTE)
 				(label :class "label_quote" :text QUOTE2)))))
 
-;;  apps 
+;; apps
 (defwidget apps [] 
 	(box :class "genwin" :orientation "v" :space-evenly "false" :vexpand "false" :hexpand "false" 
 		(box :class "appbox" :orientation "h" :space-evenly "false" :vexpand "false" :hexpand "false" 
@@ -174,7 +172,7 @@
 			(button :style "background-image: url('images/icons/gimp.svg');" :class "app_gimp" :onclick "~/.config/eww/scripts/open_apps --gp")
 			(button :style "background-image: url('images/icons/virtualbox.svg');" :class "app_vbox" :onclick "~/.config/eww/scripts/open_apps --vb"))))
 
-;;  power buttons 
+;; power buttons
 (defwidget logout [] 
 	(box :class "genwin" :vexpand "false" :hexpand "false" 
 		(button :class "btn_logout" :onclick "openbox --exit" "")))
@@ -188,7 +186,7 @@
 	(box :class "genwin" :vexpand "false" :hexpand "false" 
 		(button :class "btn_poweroff" :onclick "systemctl poweroff" "")))
 
-;;  folders 
+;; folders
 (defwidget folders [] 
 	(box :class "genwin" :orientation "v" :space-evenly "false" :vexpand "false" :hexpand "false" 
 		(box :class "hddbox" :orientation "h" :space-evenly "false" :vexpand "false" :hexpand "false" 
@@ -216,98 +214,96 @@
 			(button :class "iconfolder6" :onclick "~/.config/eww/scripts/open_folders --local" "ﮛ")
 			(button :class "label_folder6" :onclick "~/.config/eww/scripts/open_folders --local" "~/.local"))))
 
-    
 
-;;  ******************************************************************************** 
+;; ** Windows *************************************************************************
 
-    
 
-;;  background 
+;; background
 (defwindow background :stacking "fg" :focusable "false" :screen 1 
 	    :geometry (geometry :x 0 :y 0 :width "1920px" :height "1080px")
 					(bg))
 
-;;  profile 
+;; profile
 (defwindow profile :stacking "fg" :focusable "false" :screen 1 
 	    :geometry (geometry :x 150 :y 150 :width 350 :height 440)
 					(user))
 
-;;  system 
+;; system
 (defwindow system :stacking "fg" :focusable "false" :screen 1 
 	    :geometry (geometry :x 150 :y 605 :width 350 :height 325)
 					(system))
 
-;;  clock 
+;; clock
 (defwindow clock :stacking "fg" :focusable "false" :screen 1 
 	    :geometry (geometry :x 515 :y 150 :width 350 :height 155)
 					(clock))
 
-;;  uptime 
+;; uptime
 (defwindow uptime :stacking "fg" :focusable "false" :screen 1 
 	    :geometry (geometry :x 515 :y 320 :width 350 :height 155)
 					(uptime))
 
-;;  music 
+;; music
 (defwindow music :stacking "fg" :focusable "false" :screen 1 
 	    :geometry (geometry :x 515 :y 490 :width 610 :height 280)
 					(music))
 
-;;  github 
+;; github
 (defwindow github :stacking "fg" :focusable "false" :screen 1 
 	    :geometry (geometry :x 515 :y 785 :width 141 :height 145)
 					(github))
 
-;;  reddit 
+;; reddit
 (defwindow reddit :stacking "fg" :focusable "false" :screen 1 
 	    :geometry (geometry :x 671 :y 785 :width 141 :height 145)
 					(reddit))
 
-;;  twitter 
+;; twitter
 (defwindow twitter :stacking "fg" :focusable "false" :screen 1 
 	    :geometry (geometry :x 827 :y 785 :width 141 :height 145)
 					(twitter))
 
-;;  youtube 
+;; youtube
 (defwindow youtube :stacking "fg" :focusable "false" :screen 1 
 	    :geometry (geometry :x 983 :y 785 :width 142 :height 145)
 					(youtube))
 
-;;  weather 
+;; weather
 (defwindow weather :stacking "fg" :focusable "false" :screen 1 
 	    :geometry (geometry :x 880 :y 150 :width 550 :height 325)
 					(weather))
 
-;;  apps 
+;; apps
 (defwindow apps :stacking "fg" :focusable "false" :screen 1 
 	    :geometry (geometry :x 1140 :y 490 :width 290 :height 280)
 					(apps))
 
-;;  mail 
+;; mail
 (defwindow mail :stacking "fg" :focusable "false" :screen 1 
 	    :geometry (geometry :x 1140 :y 785 :width 290 :height 145)
 					(mail))
 
-;;  logout 
+;; logout
 (defwindow logout :stacking "fg" :focusable "false" :screen 1 
 	    :geometry (geometry :x 1445 :y 150 :width 155 :height 155)
 					(logout))
 
-;;  sleep 
+;; sleep
 (defwindow sleep :stacking "fg" :focusable "false" :screen 1 
 	    :geometry (geometry :x 1615 :y 150 :width 155 :height 155)
 					(sleep))
 
-;;  reboot 
+;; reboot
 (defwindow reboot :stacking "fg" :focusable "false" :screen 1 
 	    :geometry (geometry :x 1445 :y 320 :width 155 :height 155)
 					(reboot))
 
-;;  poweroff 
+;; poweroff
 (defwindow poweroff :stacking "fg" :focusable "false" :screen 1 
 	    :geometry (geometry :x 1615 :y 320 :width 155 :height 155)
 					(poweroff))
 
-;;  folders 
+;; folders
 (defwindow folders :stacking "fg" :focusable "false" :screen 1 
 	    :geometry (geometry :x 1445 :y 490 :width 325 :height 440)
 					(folders))
