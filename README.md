@@ -27,7 +27,7 @@
 
 ### Installation
 
-- Install Elkowar’s Wacky Widgets - [Instructions](https://elkowar.github.io/eww/main)
+- Install Elkowar’s Wacky Widgets - [Instructions](https://elkowar.github.io/eww)
 - Clone this repository
 ```
 $ git clone --depth=1 https://github.com/adi1090x/widgets.git
