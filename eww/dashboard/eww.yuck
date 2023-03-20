@@ -220,91 +220,91 @@
 
 
 ;; background
-(defwindow background :stacking "fg" :focusable "false" :screen 1 
-	    :geometry (geometry :x 0 :y 0 :width "1920px" :height "1080px")
-					(bg))
+;;(defwindow background :stacking "fg" :wm-ignore "false" :screen 1 
+;;	    :geometry (geometry :x 0 :y 0 :width "1920px" :height "1080px")
+;;					(bg))
 
 ;; profile
-(defwindow profile :stacking "fg" :focusable "false" :screen 1 
+(defwindow profile :stacking "bg" :wm-ignore "false" :screen 1 
 	    :geometry (geometry :x 150 :y 150 :width 350 :height 440)
 					(user))
 
 ;; system
-(defwindow system :stacking "fg" :focusable "false" :screen 1 
+(defwindow system :stacking "fg" :wm-ignore "false" :screen 1 
 	    :geometry (geometry :x 150 :y 605 :width 350 :height 325)
 					(system))
 
 ;; clock
-(defwindow clock :stacking "fg" :focusable "false" :screen 1 
+(defwindow clock :stacking "fg" :wm-ignore "false" :screen 1 
 	    :geometry (geometry :x 515 :y 150 :width 350 :height 155)
 					(clock))
 
 ;; uptime
-(defwindow uptime :stacking "fg" :focusable "false" :screen 1 
+(defwindow uptime :stacking "fg" :wm-ignore "false" :screen 1 
 	    :geometry (geometry :x 515 :y 320 :width 350 :height 155)
 					(uptime))
 
 ;; music
-(defwindow music :stacking "fg" :focusable "false" :screen 1 
+(defwindow music :stacking "fg" :wm-ignore "false" :screen 1 
 	    :geometry (geometry :x 515 :y 490 :width 610 :height 280)
 					(music))
 
 ;; github
-(defwindow github :stacking "fg" :focusable "false" :screen 1 
+(defwindow github :stacking "fg" :wm-ignore "false" :screen 1 
 	    :geometry (geometry :x 515 :y 785 :width 141 :height 145)
 					(github))
 
 ;; reddit
-(defwindow reddit :stacking "fg" :focusable "false" :screen 1 
+(defwindow reddit :stacking "fg" :wm-ignore "false" :screen 1 
 	    :geometry (geometry :x 671 :y 785 :width 141 :height 145)
 					(reddit))
 
 ;; twitter
-(defwindow twitter :stacking "fg" :focusable "false" :screen 1 
+(defwindow twitter :stacking "fg" :wm-ignore "false" :screen 1 
 	    :geometry (geometry :x 827 :y 785 :width 141 :height 145)
 					(twitter))
 
 ;; youtube
-(defwindow youtube :stacking "fg" :focusable "false" :screen 1 
+(defwindow youtube :stacking "fg" :wm-ignore "false" :screen 1 
 	    :geometry (geometry :x 983 :y 785 :width 142 :height 145)
 					(youtube))
 
 ;; weather
-(defwindow weather :stacking "fg" :focusable "false" :screen 1 
+(defwindow weather :stacking "fg" :wm-ignore "false" :screen 1 
 	    :geometry (geometry :x 880 :y 150 :width 550 :height 325)
 					(weather))
 
 ;; apps
-(defwindow apps :stacking "fg" :focusable "false" :screen 1 
+(defwindow apps :stacking "fg" :wm-ignore "false" :screen 1 
 	    :geometry (geometry :x 1140 :y 490 :width 290 :height 280)
 					(apps))
 
 ;; mail
-(defwindow mail :stacking "fg" :focusable "false" :screen 1 
+(defwindow mail :stacking "fg" :wm-ignore "false" :screen 1 
 	    :geometry (geometry :x 1140 :y 785 :width 290 :height 145)
 					(mail))
 
 ;; logout
-(defwindow logout :stacking "fg" :focusable "false" :screen 1 
+(defwindow logout :stacking "fg" :wm-ignore "false" :screen 1 
 	    :geometry (geometry :x 1445 :y 150 :width 155 :height 155)
 					(logout))
 
 ;; sleep
-(defwindow sleep :stacking "fg" :focusable "false" :screen 1 
+(defwindow sleep :stacking "fg" :wm-ignore "false" :screen 1 
 	    :geometry (geometry :x 1615 :y 150 :width 155 :height 155)
 					(sleep))
 
 ;; reboot
-(defwindow reboot :stacking "fg" :focusable "false" :screen 1 
+(defwindow reboot :stacking "fg" :wm-ignore "false" :screen 1 
 	    :geometry (geometry :x 1445 :y 320 :width 155 :height 155)
 					(reboot))
 
 ;; poweroff
-(defwindow poweroff :stacking "fg" :focusable "false" :screen 1 
+(defwindow poweroff :stacking "fg" :wm-ignore "false" :screen 1 
 	    :geometry (geometry :x 1615 :y 320 :width 155 :height 155)
 					(poweroff))
 
 ;; folders
-(defwindow folders :stacking "fg" :focusable "false" :screen 1 
+(defwindow folders :stacking "fg" :wm-ignore "false" :screen 1 
 	    :geometry (geometry :x 1445 :y 490 :width 325 :height 440)
 					(folders))
